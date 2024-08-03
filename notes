@@ -7,3 +7,7 @@ fixtures dostarczają zasobów do testów
 
 conftest - plik na fixtures, musi się tak nazywać, z tego pliku fixtures będą dostępne globalnie
 
+marking - for example we can mark a very slow test using annotations
+
+e.g. @pytest.mark.slow
+pytest -m slow

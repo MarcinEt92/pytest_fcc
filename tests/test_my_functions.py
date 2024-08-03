@@ -1,5 +1,5 @@
 import pytest
-
+import time
 import resources.my_functions as my_functions
 
 
@@ -21,3 +21,9 @@ def test_divide():
 def test_zero_division():
     with pytest.raises(ValueError):
         my_functions.divide(3, 0)
+
+@pytest.mark.slow
+def test_very_divide_slow():
+    time.sleep(2)
+    result = my_functions.divide(6, 2)
+    assert result == 3
