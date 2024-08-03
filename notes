@@ -1,0 +1,6 @@
+https://www.youtube.com/watch?v=cHYq1MRoyI0&ab_channel=freeCodeCamp.org
+
+pytest -s test_class.py
+-s used for including setup and teardown methods
+
+fixtures to do
