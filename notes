@@ -1,3 +1,5 @@
+pip freeze > requirements.txt
+
 https://www.youtube.com/watch?v=cHYq1MRoyI0&ab_channel=freeCodeCamp.org
 
 pytest -s test_class.py
@@ -11,3 +13,32 @@ marking - for example we can mark a very slow test using annotations
 
 e.g. @pytest.mark.slow
 pytest -m slow
+command above runs only tests marked with slow
+
+built in marks: skip(reason="abcd"), xfail(reason="abcd"),
+xfail mark can be used if we know that test is gonna fail
+
+47:20 - parameterizing - creating sets of data that test is running with
+
+pamietac, że moge uzywac metod z klas bazowych
+
+55:30 mocking
+test_service file
+"resources.service.get_user_from_db" - get this function and replace it with mock_get_user_from_db
+then we define a return value that this mocked function returns
+we invoke the user_name = service.get_user_from_db(1) statement, however implementation of the method
+might not event exist, return value will be one defined in mock function
+
+1:03 mocking with API
+
+Fake API
+https://jsonplaceholder.typicode.com/
+
+w ostatnim przykładzie stworzylismy sytuacje w której imitujemy odpowiedź z zewnętrznego serwisu
+stworzylismy obiekt Mock, który naśladuje Response object, czyli obiekt zwracany metodą requests.get("https://.....")
+definiujemy jego pola, takie jak status code oraz metodę json, jesli kiedykolwiek w testowanej funkcji
+pojawi się wywołanie requests.get() to zastąp tę funkcję naszym mockiem
+
+json.return_value - musimy dodać return value ponieważ response.json() to metoda zwracająca wartość
+z kolei mock_response.status_code = 200 jest właściwoscią, więc return_value nie ma
+
